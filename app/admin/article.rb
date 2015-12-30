@@ -2,11 +2,11 @@ ActiveAdmin.register Article do
   menu parent: "Blog"
   permit_params :title, :text
 
-  controller do
-    def create
-      puts 'this is inside my own controller!'
-    end
-  end
+  # controller do
+  #   def create
+  #     puts 'this is inside my own controller!'
+  #   end
+  # end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
