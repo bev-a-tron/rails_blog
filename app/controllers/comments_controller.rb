@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-
-  http_basic_authenticate_with name: "bal", password: "secret", only: :destroy
+  http_basic_authenticate_with name: 'bal', password: 'secret', only: :destroy
 
   def new
   end
@@ -19,7 +18,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:commenter, :body)
-    end
+
+  def comment_params
+    params.require(:comment).permit(:commenter, :body)
+  end
 end

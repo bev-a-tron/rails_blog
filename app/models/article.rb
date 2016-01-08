@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, presence: true,
-            length: { minimum: 5 }
+                    length: { minimum: 5 }
 
   before_create :do_this_before
   after_create :do_this
@@ -13,5 +13,4 @@ class Article < ActiveRecord::Base
   def do_this
     puts 'doing this extra thing!'
   end
-
 end

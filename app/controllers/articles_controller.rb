@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-
-  http_basic_authenticate_with name: "bal", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: 'bal', password: 'secret', except: [:index, :show]
 
   def helper_method(n)
     'a' * n
@@ -53,10 +52,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :text)
-    end
 
-
-
+  def article_params
+    params.require(:article).permit(:title, :text)
+  end
 end

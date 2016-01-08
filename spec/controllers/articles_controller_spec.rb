@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController do
-
   describe '#testingRandomStuff' do
     it 'should be true' do
       expect(true).to be(true)
@@ -29,6 +28,5 @@ RSpec.describe ArticlesController do
       expect(answer).to_not equal('aaa') # compares equality of IDs
       expect(answer).to_not be('aaa') # compares equality of IDs
     end
-
   end
 end
