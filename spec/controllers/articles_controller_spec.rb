@@ -17,7 +17,7 @@ RSpec.describe ArticlesController do
     context 'without mocking' do
       it 'should return value from method' do
         answer = controller.beverlys_method
-        expect(answer).to eq(100)
+        expect(answer).to eq('aaa')
       end
     end
 
@@ -38,24 +38,6 @@ RSpec.describe ArticlesController do
         end
       end
     end
-
-    context 'with stubbing' do
-      context 'with return' do
-        it 'should return the return value' do
-          allow(controller).to receive(:helper_method).and_return('cake')
-          t = controller.helper_method(2345678)
-          expect(t).to eq('cake')
-        end
-      end
-
-      context 'without return' do
-        it 'should return nil' do
-          allow(controller).to receive(:helper_method)
-          t = controller.helper_method(2345678)
-          expect(t).to eq(nil)
-        end
-      end
-    end
   end
 
   describe '#helperMethod' do
@@ -66,6 +48,30 @@ RSpec.describe ArticlesController do
       expect(answer).to eql('aaa')
       expect(answer).to_not equal('aaa') # compares equality of IDs
       expect(answer).to_not be('aaa') # compares equality of IDs
+    end
+
+    context 'with stubbing' do
+      context 'with return' do
+        it 'should return the return value' do
+          allow(controller).to receive(:helper_method).and_return('cake')
+          t = controller.helper_method(2_345_678)
+          expect(t).to eq('cake')
+        end
+      end
+
+      context 'without return' do
+        it 'should return nil' do
+          allow(controller).to receive(:helper_method)
+          t = controller.helper_method(2_345_678)
+          expect(t).to eq(nil)
+        end
+      end
+    end
+
+    it 'cannot receive input arguments that are not specified' do
+      allow(controller).to receive(:helper_method).with(100).and_return('pineapples')
+      expect { controller.helper_method(10) }.to raise_error(RSpec::Mocks::MockExpectationError)
+      controller.helper_method(100)
     end
   end
 end
