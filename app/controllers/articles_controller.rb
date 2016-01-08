@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
 
   http_basic_authenticate_with name: "bal", password: "secret", except: [:index, :show]
 
+  def helper_method(n)
+    'a' * n
+  end
+
   def beverlys_method
     100
   end
