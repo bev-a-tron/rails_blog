@@ -12,7 +12,7 @@ RSpec.describe ArticlesController do
   end
 
   describe '#beverlysMethod' do
-    let (:controller) { ArticlesController.new }
+    let(:controller) { ArticlesController.new }
     it 'should return 100' do
       answer = controller.beverlys_method
       expect(answer).to be(100)
