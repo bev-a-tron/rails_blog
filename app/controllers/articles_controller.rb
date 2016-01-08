@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def beverlys_method
-    helper_method(3)
+    100
   end
 
   def new

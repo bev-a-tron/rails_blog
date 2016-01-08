@@ -17,7 +17,7 @@ RSpec.describe ArticlesController do
     context 'without mocking' do
       it 'should return value from method' do
         answer = controller.beverlys_method
-        expect(answer).to eq('aaa')
+        expect(answer).to eq(100)
       end
     end
 
