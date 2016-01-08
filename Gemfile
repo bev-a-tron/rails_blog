@@ -48,3 +48,4 @@ end
 # for ActiveAdmin
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem "rspec-rails", :group => [:development, :test]
