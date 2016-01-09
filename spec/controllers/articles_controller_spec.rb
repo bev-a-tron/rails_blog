@@ -38,6 +38,23 @@ RSpec.describe ArticlesController do
         end
       end
     end
+
+    describe '#beverlysMethod#helperMethod' do
+      let(:controller) { ArticlesController.new }
+
+      it 'should return value from the stub' do
+        allow(controller).to receive(:helper_method).with(3).and_return('louuuu')
+        p = controller.beverlys_method
+        expect(p).to eq('louuuu')
+      end
+
+      it 'should have a Mock error' do
+        allow(controller).to receive(:helper_method).with(2).and_return('hello')
+        expect { controller.beverlys_method }.to raise_error( RSpec::Mocks::MockExpectationError )
+      end
+
+    end
+
   end
 
   describe '#helperMethod' do
