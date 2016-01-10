@@ -53,8 +53,21 @@ RSpec.describe ArticlesController do
         expect { controller.beverlys_method }.to raise_error( RSpec::Mocks::MockExpectationError )
       end
 
+      it 'should do stuff' do
+        expect(controller).to receive(:helper_method)
+        controller.beverlys_method
+      end
     end
+  end
 
+  describe '#beverlysMethodNoHelper' do
+    let(:controller) { ArticlesController.new }
+
+    it 'should not do stuff' do
+      expect(controller).to receive(:helper_method)
+      expect(controller).to receive(:beverlys_method_no_helper)
+      expect { controller.beverlys_method_no_helper }.to raise_error( RSpec::Mocks::MockExpectationError )
+    end
   end
 
   describe '#helperMethod' do
@@ -91,4 +104,57 @@ RSpec.describe ArticlesController do
       controller.helper_method(100)
     end
   end
+
+  describe '#lulu' do
+    let(:controller) { ArticlesController.new }
+
+    it 'should be true' do
+      t = controller.lulu(1)
+      expect(t).to be(true)
+    end
+
+    it 'should be false' do
+      t = controller.lulu(2)
+      expect(t).to be(false)
+    end
+  end
+
+  describe '#callsLulu' do
+    let(:controller) { ArticlesController.new }
+
+    it 'should be true' do
+      t = controller.calls_lulu(1)
+      expect(t).to be(true)
+    end
+
+    it 'should be false' do
+      t = controller.calls_lulu(2)
+      expect(t).to be(false)
+    end
+
+    context 'mock the call to lulu' do
+      context 'set return value' do
+        it 'should be false' do
+          expect(controller).to receive(:lulu).with(1) # note: returns nil
+          t = controller.calls_lulu(1)
+          expect(t).to eq('monkeys!!!')
+        end
+
+        it 'should be monkeys' do
+          expect(controller).to receive(:lulu).with(1).and_return(false)
+          t = controller.calls_lulu(1)
+          expect(t).to eq('monkeys!!!')
+        end
+
+        it 'should be true' do
+          expect(controller).to receive(:lulu).with(2).and_return(true) # does not expect true, sets it to true
+          t = controller.calls_lulu(2)
+          expect(t).to be(true)
+        end
+
+      end
+    end
+
+  end
+
 end

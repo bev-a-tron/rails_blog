@@ -9,6 +9,22 @@ class ArticlesController < ApplicationController
     helper_method(3)
   end
 
+  def beverlys_method_no_helper
+    puts 'no helper method called here'
+  end
+
+  def lulu(input)
+    if input == 1
+      true
+    else
+      false
+    end
+  end
+
+  def calls_lulu(input)
+      lulu(input) || 'monkeys!!!'
+  end
+
   def new
     @article = Article.new
   end
