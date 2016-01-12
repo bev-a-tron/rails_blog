@@ -50,7 +50,7 @@ RSpec.describe ArticlesController do
 
       it 'should have a Mock error' do
         allow(controller).to receive(:helper_method).with(2).and_return('hello')
-        expect { controller.beverlys_method }.to raise_error( RSpec::Mocks::MockExpectationError )
+        expect { controller.beverlys_method }.to raise_error(RSpec::Mocks::MockExpectationError)
       end
 
       it 'should do stuff' do
@@ -66,7 +66,7 @@ RSpec.describe ArticlesController do
     it 'should not do stuff' do
       expect(controller).to receive(:helper_method)
       expect(controller).to receive(:beverlys_method_no_helper)
-      expect { controller.beverlys_method_no_helper }.to raise_error( RSpec::Mocks::MockExpectationError )
+      expect { controller.beverlys_method_no_helper }.to raise_error(RSpec::Mocks::MockExpectationError)
     end
   end
 
@@ -151,10 +151,7 @@ RSpec.describe ArticlesController do
           t = controller.calls_lulu(2)
           expect(t).to be(true)
         end
-
       end
     end
-
   end
-
 end

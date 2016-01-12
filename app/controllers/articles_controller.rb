@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   end
 
   def calls_lulu(input)
-      lulu(input) || 'monkeys!!!'
+    lulu(input) || 'monkeys!!!'
   end
 
   def new
