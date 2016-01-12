@@ -1,3 +1,25 @@
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
+<%= javascript_tag do %>
+    $( document ).ready(function() {
+        var availableTags = [
+        
+        <% Tag.all.each do |t| %>
+            '<%= j t.name %>',
+        <% end %>
+        
+        ];
+
+        $( "#label" ).autocomplete({
+          source: availableTags
+        });
+  });
+  <% end %>
+
 <h1>New Article</h1>
 
 <%= render 'form' %>
