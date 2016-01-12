@@ -3,3 +3,22 @@
 Speed-learning Rails through making a blog.
 
 Follows this tutorial:  guides.rubyonrails.org/getting_started.html
+
+== Pre-requisites
+
+- Ruby
+- Rails
+- bundler
+- sqlite3
+
+
+== Steps
+
+
+1. bundle install
+
+2. rake db:create
+
+3. rake db:migrate
+
+4. rails s
