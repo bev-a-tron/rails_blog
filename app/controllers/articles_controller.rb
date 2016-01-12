@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   def helper_method(n)
     'a' * n
   end
