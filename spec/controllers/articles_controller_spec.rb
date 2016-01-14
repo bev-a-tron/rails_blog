@@ -60,16 +60,6 @@ RSpec.describe ArticlesController do
     end
   end
 
-  describe '#beverlysMethodNoHelper' do
-    let(:controller) { ArticlesController.new }
-
-    it 'should not do stuff' do
-      expect(controller).to receive(:helper_method)
-      expect(controller).to receive(:beverlys_method_no_helper)
-      expect { controller.beverlys_method_no_helper }.to raise_error(RSpec::Mocks::MockExpectationError)
-    end
-  end
-
   describe '#helperMethod' do
     let(:controller) { ArticlesController.new }
     it 'should return aaa' do
@@ -129,7 +119,7 @@ RSpec.describe ArticlesController do
 
     it 'should be false' do
       t = controller.calls_lulu(2)
-      expect(t).to be(false)
+      expect(t).to eq('monkeys!!!')
     end
 
     context 'mock the call to lulu' do
