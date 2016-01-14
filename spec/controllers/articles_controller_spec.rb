@@ -146,12 +146,9 @@ RSpec.describe ArticlesController do
   end
 
   describe 'try out Factory Girl stuff' do
-
     it 'should make a new article with factory' do
       article = build :article
       puts article
     end
-
   end
-
 end
