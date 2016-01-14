@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'factory_girl'
 
 RSpec.describe ArticlesController do
   describe '#testingRandomStuff' do
@@ -144,4 +145,14 @@ RSpec.describe ArticlesController do
       end
     end
   end
+
+  describe 'try out Factory Girl stuff' do
+
+    it 'should make a new article with factory' do
+      article = FactoryGirl.build :article
+      puts article
+    end
+
+  end
+
 end
