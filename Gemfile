@@ -49,3 +49,4 @@ gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rspec-rails', group: [:development, :test]
 gem 'rubocop'
+gem 'factory_girl_rails', '~> 4.0'
