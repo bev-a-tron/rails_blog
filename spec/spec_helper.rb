@@ -15,6 +15,9 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
+
+require 'rails_helper'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -87,4 +90,11 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+end
+
+RSpec.configure do |config|
+
+  # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
+  config.include FactoryGirl::Syntax::Methods
+
 end
